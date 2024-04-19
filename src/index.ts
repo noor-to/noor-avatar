@@ -5,10 +5,7 @@ import cors from "@elysiajs/cors";
 const app = new Elysia()
   .use(cors())
   .get("/", () => {
-    return {
-      contentType: "",
-      Response: "Noor.to Avatars",
-    };
+    return "Noor.to Avatars";
   })
   .get("/twitter/:username", twitter)
   .listen(3000);
