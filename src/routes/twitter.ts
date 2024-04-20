@@ -14,6 +14,7 @@ export const twitter = async ({ params: { username } }) => {
     if (!username) {
       return "";
     }
+    console.log(`getting twitter avatar for ${username}`);
     // check cache
     const file = Bun.file(`./twitter/${username}.jpeg`);
     if (await file.exists()) {
@@ -51,6 +52,7 @@ export const twitter = async ({ params: { username } }) => {
 
       return new Response(avatarRes.body);
     } catch (error) {
+      console.log(`error ${error}`);
       await page.close();
       await browser.close();
       return "";
